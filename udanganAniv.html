@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our anniversary</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@300;400;500&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="countdown.js">
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="music romantis nanti dulu" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" id="music-btn" onclick="toogle-music()">
+        🎵
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Happy Anniversary!</h1>
+            <p>Menghitung waktu menuju hari spesial kita..</p>
+
+            <div class="countdown-container">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>Hari</small>
+                </div>
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>Jam</small>
+                </div>
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>Menit</small>
+                </div>
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>Detik</small>
+                </div>
+
+                <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;">Scroll Ke bawah ↓</p>
+            </div>
+
+            <div class="section">
+                <h2 style="margin-bottom: 20px; color: var(--brown-medium);"> Jejak Kenangan Kita</h2>
+                <div class="gallery">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Kenangan 1" class="reveal">
+                    <div class="reveal" style="font-size: 0.9rem; margin-bottom: 20px;">Waktu pertama kita pergi ke tempat ini...</div>
+
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Kenangan 2" class="reveal">
+                    <div class="reveal" style="font-size: 0.9rem; margin-bottom: 20px;">Moment paling lucuu</div>
+
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Kenangan 3" class="reveal">
+                    <div class="reveal" style="font-size: 0.9rem; margin-bottom: 20px;">Dan masih banyak lagi petualangan ke depannya</div>
+                </div>
+            </div>
+
+            <div class="section-reveal">
+                <h2 style="color: var(--brown-medium);">Misteri Hari H</h2>
+                <p style="font-size: 0.9rem; margin-top: 5px; opacity: 0.8;">Ketuk kartunya untuk mengetahui agenda kitaa</p>
+
+                <div class="rundown-container">
+
+                    <div class="rundown-card" onclick="revealCard(this)">
+                        <p class="rundown-time">14.56 - 16.00</p>
+                        <div class="teaser-section">
+                            <div class="teaser-img-container">
+                                <img src="https://images.unsplash.com/photo-1599307135893-b60b2d69f3e9?ixlib=rb-4.0.3&w=100&auto=format&fit=crop" class="teaser-img" alt="Teaser Perjalanan">
+                            </div>
+                            <p class="teaser-hint">Kita bakal mulai dari perjalanan</p>
+                        </div>
+                        <div class="rundown-detail">
+                        <p>Berangkat dari rumah sby ke darjoo</p>
+                    </div>
+
+                    <div class="rundown-card" onclick="revealCard(this)">
+                        <p class="rundown-time">16.00 - 17.00</p>
+                        <div class="teaser-section">
+                            <div class="teaser-img-container">
+                                <img src="https://images.unsplash.com/photo-1599307135893-b60b2d69f3e9?ixlib=rb-4.0.3&w=100&auto=format&fit=crop" class="teaser-img" alt="Teaser Perjalanan">
+                            </div>
+                            <p class="teaser-hint">Awas jangan sampai lupa senyum comel !</p>
+                        </div>
+                        <div class="rundown-detail">
+                        <p>Berangkat dari rumah momikk ke photoboth noomaa</p>
+                    </div>
+
+                    <div class="rundown-card" onclick="revealCard(this)">
+                        <p class="rundown-time">17.00 - 18.00 </p>
+                        <div class="teaser-section">
+                            <div class="teaser-img-container">
+                                <img src="https://images.unsplash.com/photo-1599307135893-b60b2d69f3e9?ixlib=rb-4.0.3&w=100&auto=format&fit=crop" class="teaser-img" alt="Teaser Perjalanan">
+                            </div>
+                            <p class="teaser-hint">Jeda sebentar yeahh....</p>
+                        </div>
+                        <div class="rundown-detail">
+                        <p>Jeda sholat magrib bentar dan pesan makann</p>
+                    </div>
+
+                    <div class="rundown-card" onclick="revealCard(this)">
+                        <p class="rundown-time">18.00 - 19.30</p>
+                        <div class="teaser-section">
+                            <div class="teaser-img-container">
+                                <img src="https://images.unsplash.com/photo-1599307135893-b60b2d69f3e9?ixlib=rb-4.0.3&w=100&auto=format&fit=crop" class="teaser-img" alt="Teaser Perjalanan">
+                            </div>
+                            <p class="teaser-hint">Moment paling spesial buat hati kitaa..</p>
+                        </div>
+                        <div class="rundown-detail">
+                        <p>Fotoo, makann bersamaa, ngobroll dan main mini gamess</p>
+                    </div>
+
+                    <div class="rundown-card" onclick="revealCard(this)">
+                        <p class="rundown-time">20.00 - 21.00</p>
+                        <div class="teaser-section">
+                            <div class="teaser-img-container">
+                                <img src="https://images.unsplash.com/photo-1599307135893-b60b2d69f3e9?ixlib=rb-4.0.3&w=100&auto=format&fit=crop" class="teaser-img" alt="Teaser Perjalanan">
+                            </div>
+                            <p class="teaser-hint">Semua kegiatan selesa, waktunya....</p>
+                        </div>
+                        <div class="rundown-detail">
+                        <p>Pulang kerumah darjooo setelah kegiatan selesai</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="secret-section-reveal">
+            <h2>Surat Rahasia</h2>
+            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.9;">Ada pesan khusus untukmu. Tekan dan tahan tombol dibawah ini sampai penuh untuk membukanya</p>
+
+            <button class="hold-btn" id="hold-btn">
+                <span>Tahan Untuk Membuka ❤️</span>
+            </button>
+
+            <div id="secret-message">
+                <h3 class="serif" style="margin-bottom: 10px; color: var(--brown-light);">Terima Kasih</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">Selamat Anniversary sayangggkuu, terima kasih sudahh bertahan, tertawa, tumbuh bersama dan nerima akuu. Ini baru opening dari cerita utama kita xixi sayanggg zahraa banyakk banyakkk</p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

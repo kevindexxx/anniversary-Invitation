@@ -20,7 +20,7 @@ body {
     text-align: center;
 }
 
-h1, h2, h3 .serif {
+h1, h2, h3, .serif {
     font-family: 'Playfair Display', serif;
 }
 
@@ -108,7 +108,7 @@ h1, h2, h3 .serif {
 
 .rundown-card {
     background-color: var(--white);
-    border: 1px sold rgba(139, 90, 43, 0.1);
+    border: 1px solid rgba(139, 90, 43, 0.1);
     border-radius: 15px;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -223,7 +223,7 @@ h1, h2, h3 .serif {
     left: 0;
     top: 0;
     height: 100%;
-    width: 0%;
+    width: var(--pseudo-width, 0%);
     background-color: var(--brown-light);
     z-index: 1;
     transition: width 0.1s linear;

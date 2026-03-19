@@ -62,40 +62,47 @@ function revealCard(card) {
     card.removeAttribute('onclick'); //menghapus onclick agar fungsi tidak berjalan lagi setelah di buka
 }
 
+
+//Fungsi button hold untuk membuka pesan rahasia
 const holdBtn = document.getElementById('hold-btn');
+const progressFill = document.getElementById('progress-fill');
 const secretMessage = document.getElementById('secret-message');
-let pressTimer;
+
 let progressInterval;
 let progress = 0;
 let isUnlocked = false;
 
+holdBtn.addEventListener('contextmenu', (e) => e.preventDefault());
+
 const startPress = (e) => {
     if(isUnlocked) return;
+    clearInterval(progressInterval);
 
     progressInterval = setInterval(() => {
         progress += 2;
-        holdBtn.style.setProperty('--pseudo-width', `$(progress)%`);
-        document.styleSheets[0].insertRule('.hold-btn::before {width: ${progress}%;}', document.styleSheets[0].cssRules.length);    
+        progressFill.style.width = `${progress}%`;
 
         if(progress >= 100){
             unlockMessage();
         }
     }, 50);
-}
+};
 
 const endPress = () => {
-    if(isUnlocked)return;
+    if(isUnlocked) return;
     clearInterval(progressInterval);
     progress = 0;
-    document.styleSheets[0].insertRule(`.hold-btn::before {width: 0%}`, document.styleSheets[0].cssRules.length);
+    progressFill.style.width = `0%`;
 };
 
 const unlockMessage = () => {
     clearInterval(progressInterval);
     isUnlocked = true;
-    holdBtn.innerHTML = "<span>Pesan Terbuka 💌</span>";
+
+    holdBtn.innerHTML = "<span>Tahan Untuk Membuka ❤️</span>";
     holdBtn.style.backgroundColor = "var(--brown-light)";
-    secretMessage.style.display = "block"
+
+    secretMessage.style.display = "block";
     secretMessage.scrollIntoView({behavior: 'smooth', block: 'nearest'});
 };
 
@@ -103,5 +110,30 @@ holdBtn.addEventListener('mousedown', startPress);
 holdBtn.addEventListener('mouseup', endPress);
 holdBtn.addEventListener('mouseleave', endPress);
 
-holdBtn.addEventListener('touchstart', startPress);
+holdBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    startPress();
+}, {passive:false});
+
 holdBtn.addEventListener('touchend', endPress);
+holdBtn.addEventListener('touchcancel', endPress);
+
+document.body.addEventListener('click', function playAudioOnFirstClick() {
+    if (!isPlaying) {
+        bgMusic.play().then(() => {
+            musicBtn.classList.add("spin");
+            isPlaying = true;
+            document.body.removeEventListener('click', playAudioOnFirstClick);
+        }).catch((e) => console.log("Autoplay diblokir browser"));
+    }
+}, { once: true });
+
+document.body.addEventListener('touchstart', function playAudioOnFirstTouch() {
+    if (!isPlaying) {
+        bgMusic.play().then(() => {
+            musicBtn.classList.add("spin");
+            isPlaying = true;
+            document.body.removeEventListener('touchstart', playAudioOnFirstTouch);
+        }).catch((e) => console.log("Autoplay diblokir browser"));
+    }
+}, { once: true });
